@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Create Project</title>
+</head>
+<body>
+    <h1>Upload Your Image</h1>
+    <form action="/cd/createProject" method="post" enctype="multipart/form-data">
+        <label for="image">Select an Image:</label>
+        <input type="file" id="image" name="cover">
+        <br>
+        <br>
+        <div> Project Title : <input type="text" name="title"></div>
+        <br>
+        <div> Project Description: <input type="text" name="description"></div>
+        <br>
+        <div> <input type="submit" value="Create Project"></div>
+    </form>
+</body>
+</html>
+
+

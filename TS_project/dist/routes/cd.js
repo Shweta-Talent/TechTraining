@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.cdRoutes = void 0;
+const express_1 = require("express");
+const project_1 = require("../controllers/project");
+const cdRoutes = (0, express_1.Router)();
+exports.cdRoutes = cdRoutes;
+cdRoutes.use('/createproject', project_1.createProject);
+cdRoutes.use('/duplicateproject', project_1.duplicateProject);
+cdRoutes.use('/listproject', project_1.listProject);
+cdRoutes.use('/deleteproject', project_1.deleteProject);
