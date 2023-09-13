@@ -1,0 +1,17 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const project_1 = require("../controllers/project");
+const submit_1 = require("../controllers/submit");
+const projectRoute = (0, express_1.Router)();
+projectRoute.post('/Project', project_1.projectadded);
+projectRoute.post('/ProjectList/search', project_1.listAllProject);
+projectRoute.delete('/deleteProject', project_1.deleteProject);
+projectRoute.patch('/updateProject', project_1.updateProject);
+projectRoute.post('/submit', submit_1.submitToproject);
+projectRoute.get('/talentSubmittedTo/search', submit_1.submission_for_project);
+projectRoute.get('/latestSubmission', submit_1.latestSubmission);
+projectRoute.get('/submissionByTalentName', submit_1.submission_bytalent);
+projectRoute.get('/sortByprojectName', project_1.SortProject);
+projectRoute.get('/sortBycreateby', project_1.SortCreateby);
+exports.default = projectRoute;

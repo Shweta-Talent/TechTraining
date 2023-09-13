@@ -1,0 +1,12 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const talent_1 = require("../controllers/talent");
+const talentRoute = (0, express_1.Router)();
+talentRoute.post("/listtalent", talent_1.listALlTalent);
+talentRoute.post("/createtalent", talent_1.createTalent);
+talentRoute.patch("/updatetalent", talent_1.update);
+talentRoute.delete("/deletetalent", talent_1.deleteTalent);
+talentRoute.get('/filterByActive', talent_1.filterALlTalentByActive);
+talentRoute.get('/filterByGender', talent_1.filterALlTalentByGender);
+exports.default = talentRoute;
