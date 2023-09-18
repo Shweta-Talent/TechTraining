@@ -3,7 +3,7 @@ import axios from "axios";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useCart } from "./CartContext";
-import "./list.css";
+import './list.css'
 
 function ListOfProducts() {
   const [products, setProducts] = useState([]);

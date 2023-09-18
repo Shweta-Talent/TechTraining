@@ -1,0 +1,37 @@
+.Card {
+  width: 300px;
+  padding: 20px;
+  margin: 0 auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.inputContainer {
+  margin-bottom: 10px;
+}
+
+.selectInput, .textInput {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+
+.convertButton {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.convertButton:hover {
+  background-color: #0056b3;
+}
+
+.resultText {
+  font-size: 16px;
+}

@@ -21,8 +21,7 @@ export function ProductCart(){
                     <div>Category: {item.category}</div>
                   </Card.Text>
                 </Card.Body>
-              </Card>
-              
+              </Card>        
             </div>
             
           ))}

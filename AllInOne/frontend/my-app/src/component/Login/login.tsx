@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import "./login.css";
-import { Link } from "react-router-dom";
+import '../ProductsList/list.css'
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

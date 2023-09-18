@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "./count.css";
 import Card from "react-bootstrap/Card";
 const ShowCounter = () => {
   const [input, setInput] = useState("");
