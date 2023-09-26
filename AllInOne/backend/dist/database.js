@@ -22,19 +22,40 @@ exports.pool = new pg_1.Pool({
 function create_tables() {
     return __awaiter(this, void 0, void 0, function* () {
         yield exports.pool.query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`);
-        yield exports.pool.query(`CREATE TABLE IF NOT EXISTS USER_INFO (
+        const abc = yield exports.pool.query(`CREATE TABLE IF NOT EXISTS USER_INFO (
         userId UUID DEFAULT UUID_GENERATE_V4() PRIMARY KEY,
         first_name varchar(50) not null,
         last_name varchar(50) not null,
         emailId varchar(50),
         password varchar(50)
     )`);
-        yield exports.pool.query(`INSERT INTO USER_INFO (first_name, last_name, emailId, password) VALUES (
-       'Jatin',
-      'Vatsa',
-      ' Jatin@1234',
-      '1234'  
+        yield exports.pool.query(`CREATE TABLE IF NOT EXISTS BLOG (
+        Title varchar(50) not null,
+        Description varchar(50) not null,
+        Blog_Id UUID DEFAULT UUID_GENERATE_V4() PRIMARY KEY,
+        Tags varchar(100) not null,
+        Status varchar(50) not null,
+        userId UUID,  
+        Category_Id varchar(50) NOT NULL,
+        FOREIGN KEY (userId) REFERENCES USER_INFO(userId)
+
     )`);
+        yield exports.pool.query(`CREATE TABLE IF NOT EXISTS CATEGORIES (
+    category_id UUID DEFAULT UUID_GENERATE_V4() PRIMARY KEY,
+    category_type varchar(50)
+)`);
+        yield exports.pool.query(`INSERT INTO CATEGORIES (category_type) VALUES
+   ('Entertainment'),
+    ('Technology'),
+    ('Sports'),
+    ('Fashion'),
+    ('Food'),
+    ('Travel'),
+    ('Health'),
+    ('Education'),
+    ('Automotive'),
+    ('Science');
+`);
     });
 }
 exports.create_tables = create_tables;

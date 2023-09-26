@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import { Link } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 
 function ResetPassword() {
   const [password, setPassword] = useState("");
@@ -13,8 +13,9 @@ function ResetPassword() {
   const [passwordErrors, setPasswordErrors] = useState<string[]>([]);
   const [emailError, setEmailError] = useState<string | null>(null);
 
+  const navigate=useNavigate()
   function handleBack() {
-    <Link to={"/login"} />;
+   navigate("/")
   }
 
   function handleSubmit(e: any) {
@@ -27,14 +28,14 @@ function ResetPassword() {
   useEffect(() => {
     const newErrors: string[] = [];
 
-    // Email validation
+  
     if (email.length === 0 && document.activeElement === emailInputRef.current) {
       setEmailError("Email is required");
     } else {
       setEmailError(null);
     }
 
-    // Password validation
+   
     const passwordPattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W_]).{8,}$/;
 
     if (!/[A-Z]/.test(password)) {

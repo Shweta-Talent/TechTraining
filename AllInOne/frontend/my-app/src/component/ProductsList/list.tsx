@@ -4,6 +4,9 @@ import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import { useCart } from "./CartContext";
 import './list.css'
+import styled from "styled-components";
+
+
 
 function ListOfProducts() {
   const [products, setProducts] = useState([]);

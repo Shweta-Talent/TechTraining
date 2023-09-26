@@ -1,7 +1,7 @@
 import styled from "styled-components";
 export const ClockContainer = styled.div`
   position: fixed;
-  bottom: 10px; 
+  bottom: 2px; 
   right: 10px; 
   background-color: rgba(0, 0, 0, 0.5);
   color: white;

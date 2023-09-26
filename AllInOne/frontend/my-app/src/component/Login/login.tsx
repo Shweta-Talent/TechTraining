@@ -2,21 +2,28 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
+import { useNavigate } from "react-router-dom"; 
 import '../ProductsList/list.css'
+import { axiosInstance } from "../validate/isAuth";
+// import ReactSwitch from 'react-switch';
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  function handleEmail(e: any) {
-    setEmail(e.target.value);
+  const [toggleValue,setToggleValue] =useState("login")
+function handleToggle(){
+  setToggleValue(toggleValue)
+}
+ async function handleSubmit(e:any){
+  e.preventDefault()
+const result= await axiosInstance.post('Login',{emailId:email,password:password})
+console.log(result)
   }
-  function handlePassword(e: any) {
-    setPassword(e.target.value);
-  }
 
+  const navigate = useNavigate();
   return (
     <div>
-      <Card className="Card">
+    
+      <Card className="Card" >
         <h3>Login Form</h3>
         <Form>
           <div>
@@ -24,7 +31,7 @@ const Login = () => {
               type="email"
               placeholder="enter email"
               value={email}
-              onChange={handleEmail}
+              onChange={(e)=>setEmail(e.target.value)}
             />
           </div>
           <div>
@@ -32,18 +39,18 @@ const Login = () => {
               type="password"
               placeholder="Enter password"
               value={password}
-              onChange={handlePassword}
+              onChange={(e)=> setPassword(e.target.value)}
             />
           </div>
 
-          <Button className="Button" type="submit">
+          <Button style={{margin:25}} onClick={handleSubmit} className="Button" type="submit">
             Login
           </Button>
-          <Button
+          <Button onClick={()=>{navigate("/ResetPassword")}}
             className="Button"
             type="submit"
             >
-           Rest
+           Reset
           </Button>
         </Form>
       </Card>
