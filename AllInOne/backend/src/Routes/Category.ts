@@ -3,6 +3,6 @@ import { categoryList } from "../Controllers/BLog";
 
 const CategoryRouter:Router=Router()
 
-CategoryRouter.post('/category',categoryList)
+CategoryRouter.get('/category',categoryList)
 
 export default CategoryRouter

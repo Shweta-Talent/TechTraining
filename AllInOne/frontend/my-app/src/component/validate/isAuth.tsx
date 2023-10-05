@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState ,createContext} from "react";
 
-export const axiosInstance=axios.create({baseURL:'http://localhost:3004/'})
+export const axiosInstance=axios.create({baseURL:'http://localhost:3004'})
 
 const authContext= createContext<{
     token: string | null;

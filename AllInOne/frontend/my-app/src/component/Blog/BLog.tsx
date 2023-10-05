@@ -77,8 +77,10 @@ width: 40%;
 
   const handleSubmit = async(e:any) => {
     e.preventDefault();
-    const result = await axiosInstance.get('category')
-    console.log(result)
+    
+    console.log("qqqqq")
+    const result = await axiosInstance.get("/category")
+    console.log('fjhfjh',result.data)
     
   };
 
@@ -90,7 +92,7 @@ width: 40%;
       <StyledCard>
         <CardBody>
           <h3>Blog</h3>
-          <Form onSubmit={handleSubmit}>
+          <Form>
             <div>
               <StyledInput 
                 type="text"
@@ -113,12 +115,27 @@ width: 40%;
                 type="text"
                 id="tags"
                 placeholder="Enter tags here"
-                value={categoryId}
-                onChange={(e:any)=>{setCategoryId(e.target.value)}}
+                value={tags}
+                onChange={(e:any)=>{setTags(e.target.value)}}
               />
             </div>
             <div>
-           
+            <CategorySelect
+          
+                id="category"
+                value={categoryId}
+                onChange={(e:any)=>{setCategoryId(e.target.value)}}
+              >
+                <option value="">Select a category</option>
+                <option value="Entertainment">Entertainment</option>
+                <option value="Sports">Sports</option>
+                <option value="Fashion">Fashion</option>
+                <option value="Food">Food</option>
+                <option value="Health">Health</option>
+                <option value="Education">Education</option>
+                <option value="Automotive">Automotive</option>
+                <option value="Education">Education</option>
+              </CategorySelect>
             <PublishContainer>
               <PublishLabel htmlFor="publishToggle">Publish</PublishLabel>
               <FormCheck
@@ -130,7 +147,7 @@ width: 40%;
               />
             </PublishContainer>
               </div>
-            <SubmitButton type="submit">Submit</SubmitButton>
+            <Button type="submit" onClick={handleSubmit}>Submit</Button>
           </Form>
         </CardBody>
       </StyledCard>
